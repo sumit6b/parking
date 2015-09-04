@@ -1,0 +1,47 @@
+/*.tabWrpr{
+	position: relative;
+}
+.tabDiv{
+	position: absolute;
+}
+.clear{
+	display: block; 
+    clear: both; 
+    width: 1px; 
+    height: 0.001%;
+    font-size: 0px; 
+    line-height: 0px; 
+}*/
+.tabTitle{
+}
+.tabTitleWrpr tr{
+    height: 44px;
+}
+.tabTitleWrpr tr td{
+	min-width: 100px;
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 12px;
+	border-bottom: 1px solid #e5e5e5;
+}
+.titleTxt{
+	background-color: #F8F8F8;
+    padding: 16px 15px;
+	cursor: pointer;
+
+}
+.titleTxt:hover{
+	background: rgba(229, 229, 229, 0.81);
+}
+
+.activeTab .titleTxt{
+	background: #fff;
+	padding:14px 15px;
+	color: #b70000;
+}
+.activeTab{
+    border: 1px solid #d5d5d5;
+    border-bottom-color: #fff !important;
+    border-radius: 4px 4px 0px 0px;
+    height: 45px;
+}

@@ -28,7 +28,7 @@
 			<div class="tabWrpr">
 				<table class="tabTitleWrpr">
 					<tr>
-						<td class="tabTitle activeTab" id="tab1"><span class="titleTxt">Live View</span></td>
+						<td class="tabTitle" id="tab1"><span class="titleTxt">Live View</span></td>
 						<td class="tabTitle" id="tab2"><span class="titleTxt">Heat Map</span></td>
 					</tr>
 				</table>
@@ -55,7 +55,7 @@
 			<form method="GET" id="formour">
 				<input type="hidden" name="nextImageindex" value="{{ nextImageIndex }}">
 				<input type="submit" name="nextButtonOrig" value="Next">
-				<input type="hidden" name="activeTab" value="{{ nextImageIndex }}">
+				<input type="hidden" name="activetabid" value="{{ nextImageIndex }}">
 			</form>
 
 				
@@ -67,8 +67,9 @@
 		</div>
 		<script>
 		$(document).ready(function(){
+			$("#{{activetabid}}").addClass("activeTab");
 			$("#formour").submit(function(){
-
+				$("#activetabid").val($(".activeTab").attr("id"));
 			});
 		// 	$("#nextButtonOrig").click(function(){
 		// 		$.ajax({

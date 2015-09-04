@@ -2,10 +2,20 @@ from django.shortcuts import render
 
 def parkingapp(request):
 	context={}
+	import pdb; pdb.set_trace()
 	context["refrenceImageUrl"] = "/static/images/pngimages/base0.png"
 	context["processedImageUrl"] = "/static/images/pngimages/base0.png"
 	context["nextImageIndex"] = 1
-	context["nextProcessedImageNumber"] = 1
+	context["activetabid"] = 'tab1'
+
+	if request.GET:
+		context["refrenceImageUrl"] = "/static/images/pngimages/base"+request.GET.get('nextImageindex','1')+".png"
+		context["processedImageUrl"] = "/static/images/pngimages/base"+request.GET.get('nextImageindex','1')+".png"
+
+		context["nextImageindex"] = int(request.GET.get('nextImageindex','1')) + 1
+		if context["nextImageindex"] > 22:
+			context["nextImageindex"] = 22
+		context['activetabid'] = request.GET.get('activetabid','tab1')
 	return render(request, "home.html", context)
 
 

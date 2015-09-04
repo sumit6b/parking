@@ -43,7 +43,6 @@
 				</div>
 				<div class="tabDiv" style="display:none;" id="tab2Content">
 					<div class="tabContent">
-
 						<div class="transformedImage">
 							<div class="processedImageWrpr">
 								<img src="{{ processedImageUrl }}" id="processedImage">
@@ -55,19 +54,13 @@
 			<form method="GET" id="formour">
 				<input type="hidden" name="nextImageindex" value="{{ nextImageIndex }}">
 				<input type="submit" name="nextButtonOrig" value="Next">
-				<input type="hidden" name="activetabid" value="{{ nextImageIndex }}">
+				<input type="hidden" name="activetabid" value="{{ activetabid }}">
 			</form>
-
-				
-
-
-
-			
-			
 		</div>
 		<script>
 		$(document).ready(function(){
-			$("#{{activetabid}}").addClass("activeTab");
+			$("#{{ activetabid }}").addClass("activeTab");
+			
 			$("#formour").submit(function(){
 				$("#activetabid").val($(".activeTab").attr("id"));
 			});

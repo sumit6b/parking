@@ -2,20 +2,23 @@ from django.shortcuts import render
 
 def parkingapp(request):
 	context={}
-	import pdb; pdb.set_trace()
-	context["refrenceImageUrl"] = "/static/images/pngimages/base0.png"
-	context["processedImageUrl"] = "/static/images/pngimages/base0.png"
-	context["nextImageIndex"] = 1
-	context["activetabid"] = 'tab1'
+	import pdb;pdb.set_trace()
+	
 
-	if request.GET:
-		context["refrenceImageUrl"] = "/static/images/pngimages/base"+request.GET.get('nextImageindex','1')+".png"
-		context["processedImageUrl"] = "/static/images/pngimages/base"+request.GET.get('nextImageindex','1')+".png"
+	if request.GET and request.GET.get("nextImageIndex"):
+		n = int(request.GET.get("nextImageindex"))%22
+		context["refrenceImageUrl"] = "/static/images/pngimages/base"+str(n)+".png"
+		context["processedImageUrl"] = "/static/images/processedimages/base"+str(n)+".png"
 
 		context["nextImageindex"] = int(request.GET.get('nextImageindex','1')) + 1
 		if context["nextImageindex"] > 22:
-			context["nextImageindex"] = 22
+			context["nextImageindex"] = 0
 		context['activetabid'] = request.GET.get('activetabid','tab1')
+	else:
+		context["refrenceImageUrl"] = "/static/images/pngimages/base0.png"
+		context["processedImageUrl"] = "/static/images/processedimages/base0.png"
+		context["nextImageIndex"] = 1
+		context["activetabid"] = 'tab1'
 	return render(request, "home.html", context)
 
 

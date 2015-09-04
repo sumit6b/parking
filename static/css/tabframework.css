@@ -26,7 +26,7 @@
 }
 .titleTxt{
 	background-color: #F8F8F8;
-    padding: 16px 15px;
+    padding: 16px 188px;
 	cursor: pointer;
 
 }
@@ -36,7 +36,7 @@
 
 .activeTab .titleTxt{
 	background: #fff;
-	padding:14px 15px;
+	padding:14px 188px;
 	color: #b70000;
 }
 .activeTab{
@@ -44,4 +44,7 @@
     border-bottom-color: #fff !important;
     border-radius: 4px 4px 0px 0px;
     height: 45px;
+}
+.tabWrpr{
+	    margin-left: 200px;
 }
